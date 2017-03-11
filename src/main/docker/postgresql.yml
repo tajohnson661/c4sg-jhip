@@ -1,0 +1,11 @@
+version: '2'
+services:
+    c4sg-postgresql:
+        image: postgres:9.5.4
+        # volumes:
+        #     - ~/volumes/jhipster/c4sg/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=c4sg
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
