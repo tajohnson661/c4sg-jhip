@@ -208,13 +208,13 @@ public class Project implements Serializable {
 
     public Project addUser(User user) {
         this.users.add(user);
-        user.getProjects().add(this);
+        //user.getProjects().add(this);
         return this;
     }
 
     public Project removeUser(User user) {
         this.users.remove(user);
-        user.getProjects().remove(this);
+        //user.getProjects().remove(this);
         return this;
     }
 

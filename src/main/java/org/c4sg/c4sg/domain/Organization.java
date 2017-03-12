@@ -168,13 +168,13 @@ public class Organization implements Serializable {
 
     public Organization addUser(User user) {
         this.users.add(user);
-        user.getOrganizations().add(this);
+        //user.getOrganizations().add(this);
         return this;
     }
 
     public Organization removeUser(User user) {
         this.users.remove(user);
-        user.getOrganizations().remove(this);
+        //user.getOrganizations().remove(this);
         return this;
     }
 
