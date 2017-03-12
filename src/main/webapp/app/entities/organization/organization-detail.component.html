@@ -1,0 +1,49 @@
+
+<div *ngIf="organization">
+    <h2><span jhiTranslate="c4SgApp.organization.detail.title">Organization</span> {{organization.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="c4SgApp.organization.name">Name</span></dt>
+        <dd>
+            <span>{{organization.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.organization.url">Url</span></dt>
+        <dd>
+            <span>{{organization.url}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.organization.logo">Logo</span></dt>
+        <dd>
+            <span>{{organization.logo}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.organization.description">Description</span></dt>
+        <dd>
+            <span>{{organization.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.organization.location">Location</span></dt>
+        <dd>
+            <div *ngIf="organization.location">
+                <a [routerLink]="['/location', organization.location?.id]">{{organization.location?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.organization.user">User</span></dt>
+        <dd>
+            <span *ngFor="let user of organization.users; let last = last">
+                {{user.id}}{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'organization/'+ organization.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,71 @@
+
+<div *ngIf="project">
+    <h2><span jhiTranslate="c4SgApp.project.detail.title">Project</span> {{project.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="c4SgApp.project.name">Name</span></dt>
+        <dd>
+            <span>{{project.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.description">Description</span></dt>
+        <dd>
+            <span>{{project.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.image">Image</span></dt>
+        <dd>
+            <span>{{project.image}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.remote">Remote</span></dt>
+        <dd>
+            <span>{{project.remote}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.contactName">Contact Name</span></dt>
+        <dd>
+            <span>{{project.contactName}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.contactPhone">Contact Phone</span></dt>
+        <dd>
+            <span>{{project.contactPhone}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.contactEmail">Contact Email</span></dt>
+        <dd>
+            <span>{{project.contactEmail}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.status">Status</span></dt>
+        <dd>
+            <span>{{project.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.location">Location</span></dt>
+        <dd>
+            <div *ngIf="project.location">
+                <a [routerLink]="['/location', project.location?.id]">{{project.location?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.user">User</span></dt>
+        <dd>
+            <span *ngFor="let user of project.users; let last = last">
+                {{user.id}}{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="c4SgApp.project.organization">Organization</span></dt>
+        <dd>
+            <div *ngIf="project.organization">
+                <a [routerLink]="['/organization', project.organization?.id]">{{project.organization?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'project/'+ project.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

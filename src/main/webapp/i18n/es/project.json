@@ -1,0 +1,31 @@
+{
+    "c4SgApp": {
+        "project" : {
+            "home": {
+                "title": "Projects",
+                "createLabel": "Crear nuevo Project",
+                "createOrEditLabel": "Crear o editar Project"
+            },
+            "created": "Un nuevo Project ha sido creado con el identificador {{ param }}",
+            "updated": "Un Project ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Project ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Project {{ id }}?"
+            },
+            "detail": {
+                "title": "Project"
+            },
+            "name": "Name",
+            "description": "Description",
+            "image": "Image",
+            "remote": "Remote",
+            "contactName": "Contact Name",
+            "contactPhone": "Contact Phone",
+            "contactEmail": "Contact Email",
+            "status": "Status",
+            "location": "Location",
+            "user": "User",
+            "organization": "Organization"
+        }
+    }
+}
