@@ -1,0 +1,60 @@
+#title: C4SG
+
+entity Project {
+  name String required minlength(2) maxlength(100),
+  description String maxlength(500),
+  image String maxlength(100),
+  remote String maxlength(1),
+  contactName String maxlength(100),
+  contactPhone String maxlength(20),
+  contactEmail String maxlength(30),
+  status String maxlength(1)
+}
+
+entity Organization {
+  name String required minlength(2) maxlength(100),
+  url String maxlength(100),
+  logo String maxlength(100),
+  description String maxlength(500),
+}
+
+entity Location {
+  streetAddress1 String maxlength(100),
+  streetAddress2 String maxlength(100),
+  city String maxlength(100),
+  stateProvince String maxlength(100),
+  postalCode String maxlength(100),
+}
+
+entity Country {
+  countryName String maxlength(100)
+}
+
+relationship OneToOne {
+  Project{location} to Location
+}
+
+relationship OneToOne {
+  Organization{location} to Location
+}
+
+relationship ManyToMany {
+  Project{user} to User{project}
+}
+
+relationship ManyToMany {
+  Organization{user} to User{organization}
+}
+relationship OneToMany {
+  Organization{project} to Project{organization}
+}
+
+relationship OneToOne {
+  Location{country} to Country
+}
+
+paginate Project with infinite-scroll
+paginate Organization with pagination
+
+service Project with serviceClass
+service Organization with serviceClass
